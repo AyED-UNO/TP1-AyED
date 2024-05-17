@@ -26,7 +26,7 @@ La fecha límite de entrega del TP finalizado es la primera clase de la semana d
 
 El grupo debe entregar una carpeta, en formato digital, que contenga:
 
-- Un documento en el que describa el enunciado del problema, explique la solución al mismo, incluyendo el diagrama de flujo correspondiente y los listados del código C desarrollado, número de grupo e integrantes del mismo. **Estos documentos deberán estar en formato pdf.** (para la entrega lo pasamos a Word y luego a PDF)
+- Un documento en el que describa el enunciado del problema, explique la solución al mismo, incluyendo el diagrama de flujo correspondiente y los listados del código C desarrollado, número de grupo e integrantes del mismo. **Estos documentos deberán estar en formato pdf.**
 - El archivo del código fuente C solución al problema.
 - No deben entregarse archivos ejecutables.
 - El nombre de la carpeta digital debe tener el siguiente formato:
