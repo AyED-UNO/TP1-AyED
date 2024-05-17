@@ -1,3 +1,4 @@
 *.exe
-· ignorar todo menos el .c
-
+# Ignorando todos los archivos menos el Tp1.c
+*.doc
+*.docx
