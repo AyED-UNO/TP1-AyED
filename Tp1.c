@@ -3,20 +3,20 @@
 #include<string.h>
 
 float calculoTotal(float precio, int cantidad);
-void informeSemanal(float total, float gasto, char maxTipo[], int maxCant);
-//void informeMensual(float, float);
+void informeSemanal(float subtotal, float gasto, float total, char maxTipo[], int maxCant);
+void informeMensual(float totalFinal, int maxSemana, float mejorSemana);
 
 main() {
 	//Variables para precio de productos
 	float precioHarina, precioEspagueti, precioTallarin, precioFusilli, precioLecheEnt, precioLecheDes;
 
 	//Variables para ingreso de ventas
-	int harina = 0, espagueti = 0, tallarin = 0, fusilli = 0, lecheEnt = 0, lecheDes = 0;  
+	int harina, espagueti, tallarin, fusilli, lecheEnt, lecheDes;  
 	
 	float gastoReposicion = 0;   
 
 	//Variables acumuladores
-	float totalSemanal = 0, totalMensual = 0;
+	float subtotalSemanal, totalSemanal, totalMensual = 0;
 
 	//Variable contador
 	int i;
@@ -57,6 +57,17 @@ main() {
 
 	//Inicio del bucle for para el ingreso de datos de venta semanales
 	for( i = 1; i < 5 ; i++ ) {
+		
+		//Reseteo de valores
+		harina = 0;
+		espagueti = 0;
+		tallarin = 0;
+		fusilli = 0;
+		lecheEnt = 0;
+		lecheDes = 0;
+		subtotalSemanal = 0;
+		totalSemanal = 0;
+		lecheMax = 0;
 
 		system("cls");
 
@@ -165,14 +176,17 @@ main() {
 			
 			}
 		}
-
 		
-		totalSemanal += calculoTotal(precioHarina, harina);
-		totalSemanal += calculoTotal(precioEspagueti, espagueti);
-		totalSemanal += calculoTotal(precioTallarin, tallarin);
-		totalSemanal += calculoTotal(precioFusilli, fusilli);
-		totalSemanal += calculoTotal(precioLecheEnt, lecheEnt);
-		totalSemanal += calculoTotal(precioLecheDes, lecheDes);
+		subtotalSemanal += calculoTotal(precioHarina, harina);
+		subtotalSemanal += calculoTotal(precioEspagueti, espagueti);
+		subtotalSemanal += calculoTotal(precioTallarin, tallarin);
+		subtotalSemanal += calculoTotal(precioFusilli, fusilli);
+		subtotalSemanal += calculoTotal(precioLecheEnt, lecheEnt);
+		subtotalSemanal += calculoTotal(precioLecheDes, lecheDes);
+		
+		gastoReposicion = (subtotalSemanal * 0.8);
+		
+		totalSemanal = subtotalSemanal - gastoReposicion;
 		
 		if(i == 1) {
 			
@@ -183,20 +197,18 @@ main() {
 			
 			semanaMax = i;
 			totalSemanaMax = totalSemanal;
-			totalSemanaMax
 			
 		}
 		
-		gastoReposicion = (totalSemanal * 0.8);
-		
-		informeSemanal(totalSemanal, gastoReposicion, lecheMaxTipo, lecheMax);
-		
-		//Reseteo de valores
-		
+		totalMensual += totalSemanal;
+
+		informeSemanal(subtotalSemanal, gastoReposicion, totalSemanal, lecheMaxTipo, lecheMax);
 		
 		system("pause");
 
 	}
+	
+	informeMensual(totalMensual, semanaMax, totalSemanaMax);
 
 	system("pause");
 
@@ -212,13 +224,11 @@ float calculoTotal(float precio, int cantidad){
 	
 }
 
-void informeSemanal(float total, float gasto, char maxTipo[], int maxCant){
-	float totalFinal;
-	totalFinal = total - gasto;
+void informeSemanal(float subtotal, float gasto, float total, char maxTipo[], int maxCant){
 	system("cls");
 	
-	printf("El total semanal previo a reposicion fue: \t$%.2f\nEl gasto de reposicion fue: \t\t$%.2f\n", total, gasto);
-	printf("El total semanal luego de reponer es: \t\t$%.2f\n", totalFinal);
+	printf("El total semanal previo a reposicion fue: \t$%.2f\nEl gasto de reposicion fue: \t\t\t$%.2f\n", subtotal, gasto);
+	printf("El total semanal luego de reponer es: \t\t$%.2f\n", total);
 	
 	printf("------------------------------------------\n");
 	
@@ -228,8 +238,41 @@ void informeSemanal(float total, float gasto, char maxTipo[], int maxCant){
 	
 	} else {
 		
-		printf("El tipo de leche mas vendido fue: \t\t%s\nCon un total de %d unidades vendidas.", maxTipo, maxCant);
+		printf("El tipo de leche mas vendido fue: \t\t%s\nCon un total de %d unidades vendidas.\n", maxTipo, maxCant);
 	
 	}
+	
+}
+
+void informeMensual(float totalFinal, int maxSemana, float mejorSemana){
+	system("cls");
+	
+	printf("El total mensual fue: \t$%.2f\n", totalFinal);
+	
+	printf("------------------------------------------\n");
+	
+	printf("La semana con mayores ingresos fue la ");
+	
+	switch(maxSemana){
+		
+		case 1:
+			printf("primera semana.\n");
+		break;
+		
+		case 2:
+			printf("segunda semana.\n");
+		break;
+		
+		case 3:
+			printf("tercera semana.\n");
+		break;
+		
+		case 4:
+			printf("cuarta semana.\n");
+		break;
+		
+	}
+	
+	printf("Con unos ingresos registrados de: \t$%.2f\n", mejorSemana);
 	
 }
