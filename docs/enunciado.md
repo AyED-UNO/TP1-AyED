@@ -6,19 +6,19 @@ El grupo deberá elegir un problema a resolver y efectuar un algoritmo en diagra
 
 Restricciones a tener en cuenta para el problema elegido:
 
-[x] El problema tiene que representar una situación de la vida real, que pueda resolverse computacionalmente.
+- [x] El problema tiene que representar una situación de la vida real, que pueda resolverse computacionalmente.
 
-[x] Ingreso de múltiples datos por parte del usuario, con un menú elegante (como mínimo uno de los datos a ingresar tiene que ser una cadena de texto).
+- [x] Ingreso de múltiples datos por parte del usuario, con un menú elegante (como mínimo uno de los datos a ingresar tiene que ser una cadena de texto).
 
-[ ] Salida formateada y elegante (tabulaciones, decimales, \n, etc.).
+- [ ] Salida formateada y elegante (tabulaciones, decimales, \n, etc.).
 
-[x] Uso de contadores y acumuladores.
+- [x] Uso de contadores y acumuladores.
 
-[x] Ciclos de iteración con estructuras de selección adentro. Debe tener al menos una estructura de selección múltiple (switch).
+- [x] Ciclos de iteración con estructuras de selección adentro. Debe tener al menos una estructura de selección múltiple (switch).
 
-[x] Ciclos de iteración con ciclos de iteración adentro.
+- [x] Ciclos de iteración con ciclos de iteración adentro.
 
-[ ] Deberán usar al menos 2(dos) funciones de manejo de cadenas de caracteres.
+- [ ] Deberán usar al menos 2(dos) funciones de manejo de cadenas de caracteres.
 
 La fecha límite de entrega del enunciado propuesto será la semana del dd/mm/2024, quedando su aprobación al criterio del cuerpo docente.
 
