@@ -26,12 +26,10 @@ main() {
 
 	//Variables para seleccion (cadena de caracter)
 	char opc[3], opcLeche[4];
-
-	//Variables bandera
-	int flagSemanaMax = 0;
 	
 	//Variables para control de maximos
 	int semanaMax, lecheMax;
+	float totalSemanaMax;
 	char lecheMaxTipo[11];
 	
 	//
@@ -176,10 +174,24 @@ main() {
 		totalSemanal += calculoTotal(precioLecheEnt, lecheEnt);
 		totalSemanal += calculoTotal(precioLecheDes, lecheDes);
 		
+		if(i == 1) {
+			
+			semanaMax = i;
+			totalSemanaMax = totalSemanal;
+			
+		} else if(totalSemanaMax < totalSemanal){
+			
+			semanaMax = i;
+			totalSemanaMax = totalSemanal;
+			totalSemanaMax
+			
+		}
+		
 		gastoReposicion = (totalSemanal * 0.8);
 		
 		informeSemanal(totalSemanal, gastoReposicion, lecheMaxTipo, lecheMax);
 		
+		//Reseteo de valores
 		
 		
 		system("pause");
