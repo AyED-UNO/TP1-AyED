@@ -161,8 +161,12 @@ main() {
 			
 			strcpy(lecheMaxTipo, "ninguna");
 			
-		} else {
+		} else if (lecheEnt == lecheDes){
 			
+			strcpy(lecheMaxTipo, "iguales");
+		
+		} else {
+		
 			if(lecheMax == lecheEnt) {
 			
 				strcpy(lecheMaxTipo, "Entera");
@@ -224,14 +228,20 @@ float calculoTotal(float precio, int cantidad){
 void informeSemanal(float subtotal, float gasto, float total, char maxTipo[], int maxCant, int tipoVendido){
 	system("cls");
 	
+	printf("\t\tInforme semanal\n\n");
+	
 	printf("El total semanal previo a reposicion fue: \t$%.2f\nEl gasto de reposicion fue: \t\t\t$%.2f\n", subtotal, gasto);
 	printf("El total semanal luego de reponer es: \t\t$%.2f\n", total);
 	
-	printf("*------------------------------------------*\n");
+	printf("\n*-----------------------------------------------------------------------*\n");
 	
 	if(strcmp(maxTipo,"ninguna") == 0){
 		
-		printf("Esta semana no hubo ventas de leche.");
+		printf("Esta semana no hubo ventas de leche.\n");
+	
+	} else if (strcmp(maxTipo,"iguales") == 0){
+		
+		printf("Esta semana se vendieron cantidades iguales de tipos de leche.\n");
 	
 	} else {
 		
@@ -239,7 +249,7 @@ void informeSemanal(float subtotal, float gasto, float total, char maxTipo[], in
 	
 	}
 	
-	printf("*------------------------------------------*\n");
+	printf("\n*-----------------------------------------------------------------------*\n");
 	
 	printf("Esta semana se vendieron %d tipos de fideos.\n\n", tipoVendido);
 		
@@ -248,9 +258,11 @@ void informeSemanal(float subtotal, float gasto, float total, char maxTipo[], in
 void informeMensual(float totalFinal, int maxSemana, float mejorSemana){
 	system("cls");
 	
+	printf("\t\tInforme mensual\n\n");
+	
 	printf("El total mensual fue: \t$%.2f\n", totalFinal);
 	
-	printf("*------------------------------------------*\n");
+	printf("\n*-----------------------------------------------------------------------*\n");
 	
 	printf("La semana con mayores ingresos fue la ");
 	
