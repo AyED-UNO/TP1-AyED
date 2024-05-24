@@ -1,291 +1,241 @@
-#include<stdlib.h>
-#include<stdio.h>
-#include<string.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
-float calculoTotal(float precio, int cantidad);
-void informeSemanal(float subtotal, float gasto, float total, char maxTipo[], int maxCant, int tipoVendido);
-void informeMensual(float totalFinal, int maxSemana, float mejorSemana);
+float calculoTotal(float, int);
+void informeSemanal(float, float, float, char[], int, int);
+void informeMensual(float, int, float);
 
-main() {
-	//Variables para precio de productos
-	float precioHarina, precioEspagueti, precioTallarin, precioFusilli, precioLecheEnt, precioLecheDes;
+int main() {
 
-	//Variables para ingreso de ventas
-	int harina, espagueti, tallarin, fusilli, lecheEnt, lecheDes;  
-	
-	float gastoReposicion = 0;   
+    // Productos
+    float preHar, preEspa, preTall, preFus, preLecEnt, preLecDes; // Precios
+    int   venHar, venEspa, venTall, venFus, venLecEnt, venLecDes; // Ventas
+    char tipoFideo, tipoLeche[3+1]; // Tipos
 
-	//Variables acumuladores
-	float subtotalSemanal, totalSemanal, totalMensual = 0;
-
-	//Variable contador
-	int tiposFideosVendidos;
-
-	//Variables para seleccion (caracter)
-	char tipoFideo;
-
-	//Variables para seleccion (cadena de caracter)
-	char opc[3], opcLeche[4];
-	
-	//Variables para control de maximos
+    // Maximos
 	int semanaMax, lecheMax;
 	float totalSemanaMax;
 	char lecheMaxTipo[11];
-	
+
+    // Acumuladores
+	float subTotSem, totSem, totalMensual, gastoRepo;
+
+    // Contadores
+	int conTipoFidVen;
+
+	// Auxiliares
 	int i, flagLeche;
+	char opc[2+1];
 
-	//Inicio e ingreso de los precios de los productos
+    // Inicializacion
+    totalMensual = gastoRepo = 0;
+
+	// Ingreso de los precios de los productos
 	printf("\t\tBienvenido\nPor favor, ingrese los precios de los productos.\n\n");
+    printf("Harina: ");
+	scanf("%f", &preHar);
+    printf("Espagueti: ");
+	scanf("%f", &preEspa);
+    printf("Tallarin: ");
+	scanf("%f", &preEspa);
+    printf("Fusilli: ");
+	scanf("%f", &preFus);
+    printf("Leche Entera: ");
+	scanf("%f", &preLecEnt);
+    printf("Leche Descremada: ");
+	scanf("%f", &preLecDes);
+	// system("pause");
+	// system("cls");
 
-	printf("Harina:\n");
-	scanf("%f", &precioHarina);
-
-	printf("Espagueti:\n");
-	scanf("%f", &precioEspagueti);
-
-	printf("Tallarin:\n");
-	scanf("%f", &precioTallarin);
-
-	printf("Fusilli:\n");
-	scanf("%f", &precioFusilli);
-
-	printf("Leche Entera:\n");
-	scanf("%f", &precioLecheEnt);
-
-	printf("Leche Descremada:\n");
-	scanf("%f", &precioLecheDes);
-	
-	printf("\n");
-	system("pause");
-
-	//Inicio del bucle for para el ingreso de datos de venta semanales
+	// Ingreso de ventas semanal
 	for( i = 1; i < 5 ; i++ ) {
-		
-		//Reseteo de valores
-		harina = espagueti = tallarin = fusilli = lecheEnt = lecheDes = subtotalSemanal = totalSemanal = tiposFideosVendidos = 0;
 
-		system("cls");
+		// Reseteo de valores
+		venHar = venEspa = venTall = venFus = venLecEnt = venLecDes = subTotSem = totSem = conTipoFidVen = 0;
 
-		printf("\t\tSemana %d\n", i);
+        // Ingreso Harina
+        printf("\t\tSemana %d\n", i);
+        printf("\nIngrese la cantidad de unidades de harina vendidas: ");
+        scanf("%d", &venHar);
 
-		printf("\nIngrese la cantidad de unidades de harina vendidas:\n");
-		scanf("%d", &harina);
-
+        // Ingreso de Fideos
 		do {
-			fflush(stdin);
 			printf("\nSeleccione que tipo de fideo se vendio:\n");
-			printf("'E' = Espagueti\t'T' = Tallarin\t'F' = Fusilli\t'N' = Sin ventas\n");
+			printf("\t[E] Espagueti\n");
+            printf("\t[T] Tallarin\n");
+            printf("\t[F] Fusilli\n");
+            printf("\t[N] Sin ventas\n");
+            printf("Opcion: ");
+			fflush(stdin);
 			scanf("%c", &tipoFideo);
 
+            // system("pause");
+            // system("cls");
+
 			switch(tipoFideo) {
-
 				case 'E':
-
-					printf("\nIngrese la cantidad de unidades de fideos espagueti vendidos:\n");
-					scanf("%d", &espagueti);
-					tiposFideosVendidos++;
-
+					printf("\nIngrese cantidad de fideos ESPAGUETI vendidos: ");
+					scanf("%d", &venEspa);
 					break;
-
 				case 'T':
-
-					printf("\nIngrese la cantidad de unidades de fideos tallarin vendidos:\n");
-					scanf("%d", &tallarin);
-					tiposFideosVendidos++;
-
+					printf("\nIngrese cantidad de fideos TALLARIN vendidos: ");
+					scanf("%d", &venTall);
 					break;
-
-				case 'F':
-
-					printf("\nIngrese la cantidad de unidades de fideos fusilli vendidos:\n");
-					scanf("%d", &fusilli);
-					tiposFideosVendidos++;
-
+                case 'F':
+					printf("\nIngrese cantidad de fideos FUSILLI vendidos: ");
+					scanf("%d", &venFus);
 					break;
 			}
 
+            conTipoFidVen++;
+
+            // DEV: Funcion Continuar(). Ingresa una opcion de SI/NO y devuelva si continua o no.
+			printf("Seguir ingresando FIDEOS?\n");
+            printf("\t[SI] Si.\n");
+            printf("\t[NO] No.\n");
+            printf("Opcion: ");
 			fflush(stdin);
-			printf("\nSi se vendieron mas tipos de fideo ingrese SI, de lo contrario ingrese NO:\n");
 			scanf("%s", opc);
 
 		} while(strcmp(opc, "SI") == 0);
 
-		printf("\nSeleccione que tipo de leche se vendio:\n");
-		printf("ENT = Entera\tDES = Descremada\n");
-		scanf("%s", opcLeche);
+		// system("pause");
+		// system("cls");
 
-		if (strcmp(opcLeche, "ENT") == 0) {
+        // Ingrese de Leche
+        printf("\nSeleccione que tipo de leche se vendio:\n");
+		printf("[ENT] Entera\n");
+        printf("[DES] Descremada\n");
+        printf("Opcion: ");
+		fflush(stdin);
+        scanf("%s", tipoLeche);
 
-			printf("\nIngrese la cantidad de unidades de leche entera vendidas:\n");
-			scanf("%d", &lecheEnt);
-			lecheMax = lecheEnt;
+		if (strcmp(tipoLeche, "ENT") == 0) {
+			printf("\nIngrese la cantidad de unidades de leche entera vendidas: ");
+			scanf("%d", &venLecEnt);
+			lecheMax = venLecEnt;
 			flagLeche = 0;
-			
 		} else {
-
-			printf("\nIngrese la cantidad de unidades de leche descremada vendidas:\n");
-			scanf("%d", &lecheDes);
-			lecheMax = lecheDes;
+			printf("\nIngrese la cantidad de unidades de leche descremada vendidas: ");
+			scanf("%d", &venLecDes);
+			lecheMax = venLecDes;
 			flagLeche = 1;
-			
 		}
-		
-		printf("\nSi se vendieron mas tipos de leche ingrese SI, de lo contrario ingrese NO:\n");
+
+		printf("\nSi se vendieron mas tipos de leche ingrese SI, de lo contrario ingrese NO: ");
 		scanf("%s", opc);
 
 		if (strcmp(opc,"SI") == 0) {
-
 			if (flagLeche == 1) {
+				printf("\nIngrese la cantidad de unidades de leche entera vendidas: ");
+				scanf("%d", &venLecEnt);
 
-				printf("\nIngrese la cantidad de unidades de leche entera vendidas:\n");
-				scanf("%d", &lecheEnt);
-				
-				if (lecheMax < lecheEnt){
-					lecheMax = lecheEnt;
-				}
-
+				if (lecheMax < venLecEnt) {
+					lecheMax = venLecEnt;
+                }
 			} else {
+				printf("\nIngrese la cantidad de unidades de leche descremada vendidas: ");
+				scanf("%d", &venLecDes);
 
-				printf("\nIngrese la cantidad de unidades de leche descremada vendidas:\n");
-				scanf("%d", &lecheDes);
-				
-				if (lecheMax < lecheDes){
-					lecheMax = lecheDes;
-				}
-
-			}
-
-		}
-		
-		if(lecheMax == 0){
-			
-			strcpy(lecheMaxTipo, "ninguna");
-			
-		} else if (lecheEnt == lecheDes){
-			
-			strcpy(lecheMaxTipo, "iguales");
-		
-		} else {
-		
-			if(lecheMax == lecheEnt) {
-			
-				strcpy(lecheMaxTipo, "Entera");
-			
-			} else {
-			
-				strcpy(lecheMaxTipo, "Descremada");
-			
+				if (lecheMax < venLecDes) {
+					lecheMax = venLecDes;
+                }
 			}
 		}
-		
-		subtotalSemanal += calculoTotal(precioHarina, harina);
-		subtotalSemanal += calculoTotal(precioEspagueti, espagueti);
-		subtotalSemanal += calculoTotal(precioTallarin, tallarin);
-		subtotalSemanal += calculoTotal(precioFusilli, fusilli);
-		subtotalSemanal += calculoTotal(precioLecheEnt, lecheEnt);
-		subtotalSemanal += calculoTotal(precioLecheDes, lecheDes);
-		
-		gastoReposicion = (subtotalSemanal * 0.8);
-		
-		totalSemanal = subtotalSemanal - gastoReposicion;
-		
+
+		if(lecheMax == 0)
+            strcpy(lecheMaxTipo, "ninguna");
+		else if (venLecEnt == venLecDes)
+            strcpy(lecheMaxTipo, "iguales");
+        else if(lecheMax == venLecEnt)
+            strcpy(lecheMaxTipo, "Entera");
+        else
+            strcpy(lecheMaxTipo, "Descremada");
+
+        subTotSem += calculoTotal(preHar, venHar);
+		subTotSem += calculoTotal(preEspa, venEspa);
+		subTotSem += calculoTotal(preTall, venTall);
+		subTotSem += calculoTotal(preFus, venFus);
+		subTotSem += calculoTotal(preLecEnt, venLecEnt);
+		subTotSem += calculoTotal(preLecDes, venLecDes);
+
+        // FIX: Error de calculo
+		gastoRepo = (subTotSem * 0.8);
+		totSem = subTotSem - gastoRepo;
+
 		if(i == 1) {
-			
 			semanaMax = i;
-			totalSemanaMax = totalSemanal;
-			
-		} else if(totalSemanaMax < totalSemanal){
-			
+			totalSemanaMax = totSem;
+		} else if(totalSemanaMax < totSem) {
 			semanaMax = i;
-			totalSemanaMax = totalSemanal;
-			
+			totalSemanaMax = totSem;
 		}
-		
-		totalMensual += totalSemanal;
 
-		informeSemanal(subtotalSemanal, gastoReposicion, totalSemanal, lecheMaxTipo, lecheMax, tiposFideosVendidos);
-		
-		system("pause");
+		totalMensual += totSem;
 
+		informeSemanal(subTotSem, gastoRepo, totSem, lecheMaxTipo, lecheMax, conTipoFidVen);
+
+		// system("pause");
 	}
-	
+
 	informeMensual(totalMensual, semanaMax, totalSemanaMax);
+	// system("pause");
 
-	system("pause");
-
+	return 0;
 }
 
-float calculoTotal(float precio, int cantidad){
-	
+float calculoTotal(float precio, int cantidad) {
+
 	float total;
-	
+
 	total = precio * cantidad;
-	
-	return total;	
-	
+
+	return total;
+
 }
 
-void informeSemanal(float subtotal, float gasto, float total, char maxTipo[], int maxCant, int tipoVendido){
-	system("cls");
-	
-	printf("\t\tInforme semanal\n\n");
-	
-	printf("El total semanal previo a reposicion fue: \t$%.2f\nEl gasto de reposicion fue: \t\t\t$%.2f\n", subtotal, gasto);
-	printf("El total semanal luego de reponer es: \t\t$%.2f\n", total);
-	
-	printf("\n*-----------------------------------------------------------------------*\n");
-	
-	if(strcmp(maxTipo,"ninguna") == 0){
-		
-		printf("Esta semana no hubo ventas de leche.\n");
-	
-	} else if (strcmp(maxTipo,"iguales") == 0){
-		
-		printf("Esta semana se vendieron cantidades iguales de tipos de leche.\n");
-	
-	} else {
-		
-		printf("El tipo de leche mas vendido fue: \t\t%s\nCon un total de %d unidades vendidas.\n", maxTipo, maxCant);
-	
-	}
-	
-	printf("\n*-----------------------------------------------------------------------*\n");
-	
-	printf("Esta semana se vendieron %d tipos de fideos.\n\n", tipoVendido);
-		
+void informeSemanal(float subtotal, float gasto, float total, char maxTipo[], int maxCant, int tipoVendido) {
+	// system("cls");
+	printf("------------------------------------------------------------------------\n");
+	printf("\t\tInforme SEMANAL\n");
+	printf("------------------------------------------------------------------------\n");
+	printf("Total semanal previo a reposicion: ......................... $%.2f\n", subtotal);
+    printf("Costo de reposicion: ....................................... $%.2f\n", gasto);
+	printf("Total semanal posterior a reposicion: ...................... $%.2f\n", total);
+	printf("------------------------------------------------------------------------\n");
+	printf("Ventas de Fideos\n");
+	printf("------------------------------------------------------------------------\n");
+    printf("Cantidad: .................................................. %d\n", tipoVendido);
+	printf("------------------------------------------------------------------------\n");
+    printf("Tipo de Leche con maxima cantidad de ventas\n");
+	printf("------------------------------------------------------------------------\n");
+	if(strcmp(maxTipo,"ninguna") == 0)
+		printf("No hubo ventas de leche.\n");
+	else {
+        if (strcmp(maxTipo,"iguales") == 0)
+            printf("Misma cantidad de ventas de cada tipo de leche.\n");
+        else
+            printf("Tipo: ...................................................... %s\n", maxTipo);
+
+        printf("Cantidad: .................................................. %d\n", maxCant);
+    }
 }
 
-void informeMensual(float totalFinal, int maxSemana, float mejorSemana){
-	system("cls");
-	
-	printf("\t\tInforme mensual\n\n");
-	
-	printf("El total mensual fue: \t$%.2f\n", totalFinal);
-	
-	printf("\n*-----------------------------------------------------------------------*\n");
-	
-	printf("La semana con mayores ingresos fue la ");
-	
-	switch(maxSemana){
-		
-		case 1:
-			printf("primera semana.\n");
-		break;
-		
-		case 2:
-			printf("segunda semana.\n");
-		break;
-		
-		case 3:
-			printf("tercera semana.\n");
-		break;
-		
-		case 4:
-			printf("cuarta semana.\n");
-		break;
-		
+void informeMensual(float gananciaNeto, int maxSemana, float mejorSemana) {
+	// system("cls");
+	printf("------------------------------------------------------------------------\n");
+	printf("\t\tInforme MENSUAL\n");
+	printf("------------------------------------------------------------------------\n");
+	printf("Ganancia mensual neto: ..................................... $%.2f\n", gananciaNeto);
+	printf("Mayor ingreso semanal : .................................... $%.2f\n", mejorSemana);
+	printf("Semana con mayor ingresos: ................................. ");
+
+	switch(maxSemana) {
+		case 1: printf("PRIMERA semana.\n"); break;
+		case 2: printf("SEGUNDA semana.\n"); break;
+		case 3:	printf("TERCERA semana.\n"); break;
+		case 4: printf("CUARTA semana.\n"); break;
 	}
-	
-	printf("Con unos ingresos registrados de: \t$%.2f\n", mejorSemana);
-	
+
 }
