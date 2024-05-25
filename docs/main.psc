@@ -119,15 +119,6 @@ Algoritmo main
 		gastoRepo <- subTotSem*100/120
 		totSem <- subTotSem-gastoRepo
 
-        Escribir "importe(preHar,venHar)", importe(preHar,venHar)
-        Escribir "importe(preEspa, venEspa)", importe(preEspa, venEspa)
-        Escribir "importe(preTall, venTall)", importe(preTall, venTall)
-        Escribir "importe(preFus, venFus)", importe(preFus, venFus)
-        Escribir "importe(preLecEnt, venLecEnt)", importe(preLecEnt, venLecEnt)
-        Escribir "importe(preLecDes, venLecDes)", importe(preLecDes, venLecDes)
-        Escribir "gastoRepo", gastoRepo
-        Escribir "totSem", totSem
-
 		Si i==1 Entonces
 			semanaMax <- i
 			totalSemanaMax <- totSem
