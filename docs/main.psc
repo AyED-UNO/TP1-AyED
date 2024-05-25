@@ -7,7 +7,7 @@ Algoritmo main
 	Escribir 'Harina:'
 	Leer preHar
 	Escribir 'Espagueti:'
-	Leer precEspa
+	Leer preEspa
 	Escribir 'Tallarin:'
 	Leer preTall
 	Escribir 'Fusilli:'
@@ -16,7 +16,7 @@ Algoritmo main
 	Leer preLecEnt
 	Escribir 'Leche Descremada:'
 	Leer preLecDes
-	Para i<-1 Hasta 5 Con Paso 1 Hacer
+	Para i<-1 Hasta 4 Con Paso 1 Hacer
 		venhar <- 0
 		venEspa <- 0
 		venTall <- 0
@@ -27,7 +27,7 @@ Algoritmo main
 		totSem <- 0
 		conTipoFidVen <- 0
 		flagFideos <- 0
-		Escribir 'Semana %d', i
+		Escribir 'Semana ', i
 		Escribir 'Ingrese la cantidad de unidades de harina vendidas: '
 		Leer venHar
 		Repetir
@@ -39,19 +39,19 @@ Algoritmo main
 			Escribir 'Opcion: '
 			Leer tipoFideo
 			Según tipoFideo Hacer
-				E:
+				'E':
 					Escribir 'Ingrese cantidad de fideos ESPAGUETI vendidos: '
 					Leer venEspa
 					conTipoFidVen <- conTipoFidVen+1
-				T:
+				'T':
 					Escribir 'Ingrese cantidad de fideos TALLARIN vendidos: '
 					Leer venTall
 					conTipoFidVen <- conTipoFidVen+1
-				F:
+				'F':
 					Escribir 'Ingrese cantidad de fideos FUSILLI vendidos: '
 					Leer venFus
 					conTipoFidVen <- conTipoFidVen+1
-				N:
+				'N':
 					flagFideos <- 1
 					opc <- 'NO'
 			FinSegún
@@ -62,10 +62,10 @@ Algoritmo main
 				Escribir 'Opcion: '
 				Leer opc
 			FinSi
-			
+
 		Hasta Que opc=='NO'
 		Escribir 'Seleccione que tipo de leche se vendio:'
-		Escribir 'ENT = Entera'    
+		Escribir 'ENT = Entera'
 		Escribir 'DES = Descremada'
 		Escribir 'Opcion: '
 		Leer tipoLeche
@@ -117,7 +117,17 @@ Algoritmo main
 		subTotSem <- subTotSem+importe(preLecEnt, venLecEnt)
 		subTotSem <- subTotSem+importe(preLecDes, venLecDes)
 		gastoRepo <- subTotSem*100/120
-		totSem <- totSem-gastoRepo
+		totSem <- subTotSem-gastoRepo
+
+        Escribir "importe(preHar,venHar)", importe(preHar,venHar)
+        Escribir "importe(preEspa, venEspa)", importe(preEspa, venEspa)
+        Escribir "importe(preTall, venTall)", importe(preTall, venTall)
+        Escribir "importe(preFus, venFus)", importe(preFus, venFus)
+        Escribir "importe(preLecEnt, venLecEnt)", importe(preLecEnt, venLecEnt)
+        Escribir "importe(preLecDes, venLecDes)", importe(preLecDes, venLecDes)
+        Escribir "gastoRepo", gastoRepo
+        Escribir "totSem", totSem
+
 		Si i==1 Entonces
 			semanaMax <- i
 			totalSemanaMax <- totSem
