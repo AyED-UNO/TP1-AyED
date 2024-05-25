@@ -78,3 +78,10 @@ Leche Entera = 14
 Leche Descremada = 21
 
 3400 x 6 + 1200 x 0 + 950 x 2 + 1350 x 4 + 250 x 14 + 200 x 21
+
+## Informe Mensual
+
+Informe MENSUAL
+Ganancia mensual neto: $11700.00
+Mayor ingreso semanal: $5900.00
+Semana con mayor ingresos: CUARTA semana.
