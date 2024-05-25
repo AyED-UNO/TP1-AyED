@@ -228,7 +228,7 @@ void informeMensual(float gananciaNeto, int maxSemana, float mejorSemana) {
 	printf("\t\tInforme MENSUAL\n");
 	printf("------------------------------------------------------------------------\n");
 	printf("Ganancia mensual neto: ..................................... $%.2f\n", gananciaNeto);
-	printf("Mayor ingreso semanal : .................................... $%.2f\n", mejorSemana);
+	printf("Mayor ingreso semanal: ..................................... $%.2f\n", mejorSemana);
 	printf("Semana con mayor ingresos: ................................. ");
 
 	switch(maxSemana) {
