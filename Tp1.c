@@ -25,7 +25,7 @@ int main() {
 	int conTipoFidVen;
 
 	// Auxiliares
-	int i, flagLeche;
+	int i, flagLeche, flagFideos = 0;
 	char opc[2+1];
 
     // Inicializacion
@@ -52,7 +52,7 @@ int main() {
 	for( i = 1; i < 5 ; i++ ) {
 
 		// Reseteo de valores
-		venHar = venEspa = venTall = venFus = venLecEnt = venLecDes = subTotSem = totSem = conTipoFidVen = 0;
+		venHar = venEspa = venTall = venFus = venLecEnt = venLecDes = subTotSem = totSem = conTipoFidVen = flagFideos = 0;
 
         // Ingreso Harina
         printf("\t\tSemana %d\n", i);
@@ -77,26 +77,35 @@ int main() {
 				case 'E':
 					printf("\nIngrese cantidad de fideos ESPAGUETI vendidos: ");
 					scanf("%d", &venEspa);
+					conTipoFidVen++;
 					break;
 				case 'T':
 					printf("\nIngrese cantidad de fideos TALLARIN vendidos: ");
 					scanf("%d", &venTall);
+					conTipoFidVen++;
 					break;
                 case 'F':
 					printf("\nIngrese cantidad de fideos FUSILLI vendidos: ");
 					scanf("%d", &venFus);
+					conTipoFidVen++;
 					break;
+				case 'N':
+					flagFideos = 1;
+					strcpy(opc, "NO");
+				break;
 			}
-
-            conTipoFidVen++;
+			//Esto no va aca porque si no se vendio ninguno va a contar igual	
+            //conTipoFidVen++;
 
             // DEV: Funcion Continuar(). Ingresa una opcion de SI/NO y devuelva si continua o no.
-			printf("Seguir ingresando FIDEOS?\n");
-            printf("\t[SI] Si.\n");
-            printf("\t[NO] No.\n");
-            printf("Opcion: ");
-			fflush(stdin);
-			scanf("%s", opc);
+            if(flagFideos == 0){
+            	printf("Seguir ingresando FIDEOS?\n");
+            	printf("\t[SI] Si.\n");
+            	printf("\t[NO] No.\n");
+            	printf("Opcion: ");
+				fflush(stdin);
+				scanf("%s", opc);
+			}
 
 		} while(strcmp(opc, "SI") == 0);
 
@@ -161,6 +170,7 @@ int main() {
 		subTotSem += calculoTotal(preLecDes, venLecDes);
 
         // FIX: Error de calculo
+        // Che si queres camabiar el calculo a  como vos decis hacelo a mi me da igual. Ambas funcionan pero de diferente manera.
 		gastoRepo = (subTotSem * 0.8);
 		totSem = subTotSem - gastoRepo;
 
@@ -206,9 +216,9 @@ void informeSemanal(float subtotal, float gasto, float total, char maxTipo[], in
 	printf("------------------------------------------------------------------------\n");
 	printf("Ventas de Fideos\n");
 	printf("------------------------------------------------------------------------\n");
-    printf("Cantidad: .................................................. %d\n", tipoVendido);
+    printf("Tipos diferentes: .......................................... %d\n", tipoVendido);
 	printf("------------------------------------------------------------------------\n");
-    printf("Tipo de Leche con maxima cantidad de ventas\n");
+    printf("Tipo de Leche con mayor cantidad de ventas\n");
 	printf("------------------------------------------------------------------------\n");
 	if(strcmp(maxTipo,"ninguna") == 0)
 		printf("No hubo ventas de leche.\n");
@@ -220,6 +230,7 @@ void informeSemanal(float subtotal, float gasto, float total, char maxTipo[], in
 
         printf("Cantidad: .................................................. %d\n", maxCant);
     }
+	printf("------------------------------------------------------------------------\n");
 }
 
 void informeMensual(float gananciaNeto, int maxSemana, float mejorSemana) {
@@ -237,5 +248,5 @@ void informeMensual(float gananciaNeto, int maxSemana, float mejorSemana) {
 		case 3:	printf("TERCERA semana.\n"); break;
 		case 4: printf("CUARTA semana.\n"); break;
 	}
-
+	printf("------------------------------------------------------------------------\n");
 }
