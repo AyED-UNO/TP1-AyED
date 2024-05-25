@@ -10,7 +10,7 @@ Restricciones a tener en cuenta para el problema elegido:
 
 - [x] Ingreso de múltiples datos por parte del usuario, con un menú elegante (como mínimo uno de los datos a ingresar tiene que ser una cadena de texto).
 
-- [ ] Salida formateada y elegante (tabulaciones, decimales, \n, etc.).
+- [x] Salida formateada y elegante (tabulaciones, decimales, \n, etc.).
 
 - [x] Uso de contadores y acumuladores.
 
@@ -18,7 +18,7 @@ Restricciones a tener en cuenta para el problema elegido:
 
 - [x] Ciclos de iteración con ciclos de iteración adentro.
 
-- [ ] Deberán usar al menos 2(dos) funciones de manejo de cadenas de caracteres.
+- [x] Deberán usar al menos 2(dos) funciones de manejo de cadenas de caracteres.
 
 La fecha límite de entrega del enunciado propuesto será la semana del dd/mm/2024, quedando su aprobación al criterio del cuerpo docente.
 
