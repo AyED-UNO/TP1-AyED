@@ -38,7 +38,7 @@ int main() {
     printf("Espagueti: ");
 	scanf("%f", &preEspa);
     printf("Tallarin: ");
-	scanf("%f", &preEspa);
+	scanf("%f", &preTall);
     printf("Fusilli: ");
 	scanf("%f", &preFus);
     printf("Leche Entera: ");
