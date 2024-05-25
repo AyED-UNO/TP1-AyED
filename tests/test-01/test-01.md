@@ -18,6 +18,14 @@ Fusilli = 3
 Leche Entera = 9
 Leche Descremada = 15
 
-## PRUEBA 1 - OUTPUT
+## Informe semanal 1
 
-Total Semanal: 3400 * 2 + 1200 * 8 + 950 * 6 + 1350 * 3 + 250 * 9 + 200 * 15 = 31400
+Total Semanal previo a reposicion: $31400.00 = 3400 x 2 + 1200 x 8 + 950 x 6 + 1350 x 3 + 250 x 9 + 200 x 15
+Costo de reposicion: $26166.67 = ((3400*100)/120)*2 + ((1200*100)/120)*8 + ((950*100)/120)*6 + ((1350*100)/120)*3 + ((250*100)/120)*9 + ((200*100)/120)*15 = 100/120 * (3400 x 2 + 1200 x 8 + 950 x 6 + 1350 x 3 + 250 x 9 + 200 x 15) = 100/120 * TotalSemanalPrevioReposicion
+Total semanal posterior a reposicion: 5233.33 = 31400 - 26166.67
+Ventas de Fideos
+    Cantidad: 17
+Tipo de Leche con maxima cantidad de unidades en alguna venta
+    #MSJ = { igual || no hubo }
+    Tipo: Descremada
+    Cantidad: 15
