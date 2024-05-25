@@ -59,3 +59,12 @@ Leche Entera = 0
 Leche Descremada = 0
 
 ## Informe semanal 3
+
+Total semanal previo a reposicion: $3400.00
+Costo de reposicion: $2833.33
+Total semanal posterior a reposicion: $566.67
+Ventas de Fideos
+    Tipos diferentes: 0
+Tipo de Leche con mayor cantidad de ventas
+    No hubo ventas de leche.
+

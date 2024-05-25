@@ -23,3 +23,8 @@ N
 DES
 0
 NO
+1
+NO
+ENT
+0
+NO
