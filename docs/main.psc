@@ -38,7 +38,7 @@ Algoritmo main
 			Escribir '[N] Sin ventas'
 			Escribir 'Opcion: '
 			Leer tipoFideo
-			Seg鷑 tipoFideo Hacer
+			Seg煤n tipoFideo Hacer
 				E:
 					Escribir 'Ingrese cantidad de fideos ESPAGUETI vendidos: '
 					Leer venEspa
@@ -54,7 +54,7 @@ Algoritmo main
 				N:
 					flagFideos <- 1
 					opc <- 'NO'
-			FinSeg鷑
+			FinSeg煤n
 			Si flagFideos == 0 Entonces
 				Escribir 'Seguir ingresando FIDEOS?'
 				Escribir '[SI] Si.'
@@ -110,13 +110,13 @@ Algoritmo main
 				FinSi
 			FinSi
 		FinSi
-		subTotSem <- subTotSem+calculoTotal(preHar,venHar)
-		subTotSem <- subTotSem+calculoTotal(preEspa, venEspa)
-		subTotSem <- subTotSem+calculoTotal(preTall, venTall)
-		subTotSem <- subTotSem+calculoTotal(preFus, venFus)
-		subTotSem <- subTotSem+calculoTotal(preLecEnt, venLecEnt)
-		subTotSem <- subTotSem+calculoTotal(preLecDes, venLecDes)
-		gastoRepo <- subTotSem*0.8
+		subTotSem <- subTotSem+importe(preHar,venHar)
+		subTotSem <- subTotSem+importe(preEspa, venEspa)
+		subTotSem <- subTotSem+importe(preTall, venTall)
+		subTotSem <- subTotSem+importe(preFus, venFus)
+		subTotSem <- subTotSem+importe(preLecEnt, venLecEnt)
+		subTotSem <- subTotSem+importe(preLecDes, venLecDes)
+		gastoRepo <- subTotSem*100/120
 		totSem <- totSem-gastoRepo
 		Si i==1 Entonces
 			semanaMax <- i
@@ -133,11 +133,11 @@ Algoritmo main
 	informeMensual(totalMensual,semanaMax,totalSemanaMax)
 FinAlgoritmo
 
-Funci髇 total <- calculoTotal(precio,cantidad)
+Funci贸n total <- importe(precio,cantidad)
 	total <- precio*cantidad
-FinFunci髇
+FinFunci贸n
 
-Funci髇 informeSemanal(subtotal,gasto,total,maxTipo,maxCant,tipoVendido)
+Funci贸n informeSemanal(subtotal,gasto,total,maxTipo,maxCant,tipoVendido)
 	Escribir '------------------------------------------------------------------------'
 	Escribir 'Informe SEMANAL'
 	Escribir '------------------------------------------------------------------------'
@@ -162,9 +162,9 @@ Funci髇 informeSemanal(subtotal,gasto,total,maxTipo,maxCant,tipoVendido)
 		FinSi
 	FinSi
 	Escribir '------------------------------------------------------------------------'
-FinFunci髇
+FinFunci贸n
 
-Funci髇 informeMensual(gananciaNeto,maxSemana,mejorSemana)
+Funci贸n informeMensual(gananciaNeto,maxSemana,mejorSemana)
 	Escribir '------------------------------------------------------------------------'
 	Escribir 'Informe MENSUAL'
 	Escribir '------------------------------------------------------------------------'
@@ -172,7 +172,7 @@ Funci髇 informeMensual(gananciaNeto,maxSemana,mejorSemana)
 	Escribir 'Mayor ingreso semanal: ..................................... $', mejorSemana
 	Escribir 'Semana con mayor ingresos: ................................. '
 	Escribir 'La semana con mayores ingresos fue la '
-	Seg鷑 maxSemana Hacer
+	Seg煤n maxSemana Hacer
 		1:
 			Escribir 'PRIMERA semana.'
 		2:
@@ -181,6 +181,6 @@ Funci髇 informeMensual(gananciaNeto,maxSemana,mejorSemana)
 			Escribir 'TERCERA semana.'
 		4:
 			Escribir 'CUARTA semana.'
-	FinSeg鷑
+	FinSeg煤n
 	Escribir '------------------------------------------------------------------------'
-FinFunci髇
+FinFunci贸n
