@@ -28,3 +28,14 @@ NO
 ENT
 0
 NO
+6
+F
+4
+SI
+T
+2
+NO
+DES
+21
+SI
+14
