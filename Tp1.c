@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 
-float calculoTotal(float, int);
+float importe(float, int);
 void informeSemanal(float, float, float, char[], int, int);
 void informeMensual(float, int, float);
 
@@ -94,8 +94,6 @@ int main() {
 					strcpy(opc, "NO");
 				break;
 			}
-			//Esto no va aca porque si no se vendio ninguno va a contar igual	
-            //conTipoFidVen++;
 
             // DEV: Funcion Continuar(). Ingresa una opcion de SI/NO y devuelva si continua o no.
             if(flagFideos == 0){
@@ -112,7 +110,7 @@ int main() {
 		// system("pause");
 		// system("cls");
 
-        // Ingrese de Leche
+        // Ingreso de Leche
         printf("\nSeleccione que tipo de leche se vendio:\n");
 		printf("[ENT] Entera\n");
         printf("[DES] Descremada\n");
@@ -162,17 +160,15 @@ int main() {
         else
             strcpy(lecheMaxTipo, "Descremada");
 
-        subTotSem += calculoTotal(preHar, venHar);
-		subTotSem += calculoTotal(preEspa, venEspa);
-		subTotSem += calculoTotal(preTall, venTall);
-		subTotSem += calculoTotal(preFus, venFus);
-		subTotSem += calculoTotal(preLecEnt, venLecEnt);
-		subTotSem += calculoTotal(preLecDes, venLecDes);
+        subTotSem += importe(preHar, venHar);
+		subTotSem += importe(preEspa, venEspa);
+		subTotSem += importe(preTall, venTall);
+		subTotSem += importe(preFus, venFus);
+		subTotSem += importe(preLecEnt, venLecEnt);
+		subTotSem += importe(preLecDes, venLecDes);
 
-        // FIX: Error de calculo
-        // Che si queres camabiar el calculo a  como vos decis hacelo a mi me da igual. Ambas funcionan pero de diferente manera.
-		gastoRepo = (subTotSem * 0.8);
-		totSem = subTotSem - gastoRepo;
+        gastoRepo = subTotSem * 100/120;
+        totSem = subTotSem - gastoRepo;
 
 		if(i == 1) {
 			semanaMax = i;
@@ -195,7 +191,7 @@ int main() {
 	return 0;
 }
 
-float calculoTotal(float precio, int cantidad) {
+float importe(float precio, int cantidad) {
 
 	float total;
 
