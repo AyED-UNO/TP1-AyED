@@ -77,7 +77,16 @@ Fusilli = 4
 Leche Entera = 14
 Leche Descremada = 21
 
-3400 x 6 + 1200 x 0 + 950 x 2 + 1350 x 4 + 250 x 14 + 200 x 21
+## Informe semanal 4
+
+Total semanal previo a reposicion: $35400.00
+Costo de reposicion: $29500.00
+Total semanal posterior a reposicion: $5900.00
+Ventas de Fideos
+    Tipos diferentes: 2
+Tipo de Leche con mayor cantidad de ventas
+    Tipo: Descremada
+    Cantidad:  21
 
 ## Informe Mensual
 
