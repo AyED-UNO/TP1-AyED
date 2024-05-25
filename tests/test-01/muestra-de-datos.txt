@@ -18,3 +18,8 @@ ENT
 9
 SI
 15
+0
+N
+DES
+0
+NO

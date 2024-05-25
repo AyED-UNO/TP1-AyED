@@ -21,7 +21,7 @@ Leche Descremada = 15
 ## Informe semanal 1
 
 Total Semanal previo a reposicion: $31400.00 = 3400 x 2 + 1200 x 8 + 950 x 6 + 1350 x 3 + 250 x 9 + 200 x 15
-Costo de reposicion: $26166.67 = ((3400*100)/120)*2 + ((1200*100)/120)*8 + ((950*100)/120)*6 + ((1350*100)/120)*3 + ((250*100)/120)*9 + ((200*100)/120)*15 = 100/120 * (3400 x 2 + 1200 x 8 + 950 x 6 + 1350 x 3 + 250 x 9 + 200 x 15) = 100/120 * TotalSemanalPrevioReposicion
+Costo de reposicion: $26166.67 = ((3400*100)/120)*2 + ((1200*100)/120)*8 + ((950*100)/120)*6 + ((1350*100)/120)*3 + ((250*100)/120)*9 + ((200*100)/120)*15 = 100/120 *(3400 x 2 + 1200 x 8 + 950 x 6 + 1350 x 3 + 250 x 9 + 200 x 15) = 100/120* TotalSemanalPrevioReposicion
 Total semanal posterior a reposicion: 5233.33 = 31400 - 26166.67
 Ventas de Fideos
     Cantidad: 17
@@ -29,3 +29,33 @@ Tipo de Leche con maxima cantidad de unidades en alguna venta
     #MSJ = { igual || no hubo }
     Tipo: Descremada
     Cantidad: 15
+
+## Semana 2
+
+Harina = 0
+Espagueti = 0
+Tallarin = 0
+Fusilli = 0
+Leche Entera = 0
+Leche Descremada = 0
+
+## Informe semanal 2
+
+Total semanal previo a reposicion:  $0.00
+Costo de reposicion: $0.00
+Total semanal posterior a reposicion: $0.00
+Ventas de Fideos
+    Tipos diferentes: 0
+Tipo de Leche con mayor cantidad de ventas
+    No hubo ventas de leche
+
+## Semana 3
+
+Harina = 1
+Espagueti = 0
+Tallarin = 0
+Fusilli = 0
+Leche Entera = 0
+Leche Descremada = 0
+
+## Informe semanal 3
